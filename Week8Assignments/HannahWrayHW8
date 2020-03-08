@@ -1,0 +1,25 @@
+#! /usr/bin/env python
+# Requests user to input DNA sequence in all caps with no spaces
+seq = raw_input("Enter DNA sequence (in all caps without spaces): ")
+# Turns sequence into a list and stores in variable
+seqList = list(seq)
+# Reverses sequence list
+seqList.reverse()
+# Creates empty list
+compSeq = []
+# Loops through each nucleotide in reversed sequence list
+# Changes nucleotide to it's complement and add complement to empty list created
+# If invalid nucleotide entered by user, prints invalid message
+for nuc in seqList:
+        if nuc == "A":
+                compSeq.append("T")
+        elif nuc == "T":
+                compSeq.append("A")
+        elif nuc == "G":
+                compSeq.append("C")
+        elif nuc == "C":
+                compSeq.append("G")
+        else:
+                print("Invalid nucleotide entered.")
+# Turns complement list into string and prints to user
+print(''.join(compSeq))
