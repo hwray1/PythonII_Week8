@@ -1,0 +1,83 @@
+import random
+from copy import copy
+dirs=["u","d","l","r"]
+days=10
+pos=[0,0]
+posLog=[]
+posLog.append(copy(pos))
+posLog
+[[0, 0]]
+for move in range(10):
+    move = random.choice(dirs)
+    if move == "u":
+        pos[1] +=1
+    elif move == "d":
+        pos[1] -=1
+    elif move == "l":
+        pos[0] -=1
+    elif move == "r":
+        pos[0] +=1
+    else:
+        print("Something's wrong! Direction is not u,d,l, or r.")
+    posLog.append(copy(pos))
+posLog
+[[0, 0],
+ [0, -1],
+ [0, 0],
+ [1, 0],
+ [0, 0],
+ [0, -1],
+ [0, 0],
+ [0, 1],
+ [0, 0],
+ [0, -1],
+ [0, -2]]
+def drawMap(posLog):
+    """Function to draw an ascii map"""
+map=[]
+absMax = 0
+for pos in posLog:
+    if abs(pos[0]) > absMax:
+        absMax = abs(pos[0])
+    if abs(pos[1]) > absMax:
+         absMax = abs(pos[1])
+size = (absMax * 2) + 1
+for _ in range(size):
+       map.append([])
+for row in map:
+        for i in range(size):
+            row.append("-")
+for pos in posLog:
+        map[-1*(pos[1]+absMax+1)][pos[0]+absMax] = "*"
+for row in map:
+        rStr = ""
+        for c in row:
+            rStr += str(c)
+        print(rStr)
+-----
+--*--
+--**-
+--*--
+--*--
+drawMap(posLog)
+posLog[-1]
+[0, -2]
+import math
+import math
+*1.0
+def distance (x1,y1,x2,y2):
+    return math.sqrt(math.pow(x2-x1,2)+ math.pow(y2-y1,2)*1.0)
+print ("%.6f"%distance(0,0,1,2))
+2.236068
+#Since the individual moved the distance of 2.236068 in 10 days,and the individual moved equal distance every day, the individual moved the distance of 2.236068/10=0.2236068 each day.
+#Distances from running the simulation couple of times:
+1st attempt:2.236068
+2nd attempt:3.162278
+3rd attempt:1.414214
+4th attempt:1.414214
+5th attempt:2.236068
+#From my perspective, it is hard to tell from the coordinates how much distance they can actually move as the model says they can only 
+move a fixed distance each day. Therefore, the random model of movement cant explain well.For example, if the individuals coordinate 
+is [1,1] and [1,3], according to the model it should be around a fixed distance each day but the coordinates doesn't show that it moved 
+a fixed distance, instead it moved twice as much in upper direction in the next day which is contradictory to the model.
+​
