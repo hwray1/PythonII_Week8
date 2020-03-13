@@ -1,0 +1,61 @@
+import random
+from copy import copy 
+dirs = {"u","d","l","r"}
+days = 10
+pos = [0,0]
+posLog = []
+posLog.append( copy(pos))
+posLog
+for num in range(10):  # Loop over the specified number of days
+    move = random.choice(dirs) # Randomly draws a direction - u, d, l, or r
+    if move == "u": # Test what direction was drawn and update position accordingly
+        print("Direction is up.")
+        pos[1]+=1
+    elif move == "d":
+        print("Direction is down")
+        pos[1]-=1
+    elif move == "l":
+        print("Direction is left")
+        pos[0]-=1
+    elif move == "r":
+        print("Direction is right")
+        pos[0]+=1
+    else:
+        print("Something's wrong! Direction is not u, d, l, or r.")
+    posLog.append( copy(pos) )
+    def drawMap(posLog):
+    
+    """Function to draw an ascii map."""
+    
+    map = []
+
+    absMax = 0
+    for pos in posLog:
+        if abs(pos[0]) > absMax:
+            absMax = abs(pos[0])
+        if abs(pos[1]) > absMax:
+            absMax = abs(pos[1])
+    size = (absMax * 2) + 1
+
+    for _ in range(size):
+        map.append([])
+
+    for row in map:
+        for i in range(size):
+            row.append("-")
+
+    for pos in posLog:
+        map[-1*(pos[1]+absMax+1)][pos[0]+absMax] = "*"
+
+    for row in map:
+        rStr = ""
+        for c in row:
+            rStr += str(c)
+        print(rStr)
+        drawMap(posLog)
+import math 
+p1 = [0,0]
+p2 = posLog[-1]
+distance = math.sqrt( (p1[0]-p2[0])**2)+((p1[1]-p2[1]**2))
+
+print(distance)
