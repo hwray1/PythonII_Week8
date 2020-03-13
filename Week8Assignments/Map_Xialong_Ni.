@@ -1,0 +1,85 @@
+from copy import copy
+
+dirs = ["u","d","l","r"]
+
+days = 10
+
+pos = [0,0]
+
+posLog = []
+
+posLog.append(copy(pos))
+posLog
+
+for move in range(days):  # Loop over the specified number of days
+    move = random.choice(dirs) # Randomly draws a direction - u, d, l, or r
+    if move == "u": # Test what direction was drawn and update position accordingly
+        pos[1] += 1
+    elif move =="d":
+        pos[1] -= 1
+    elif move =="l":
+        pos[0] -= 1
+    elif move =="r":
+        pos[0] += 1
+    else:
+        print("Something's wrong! Direction is not u, d, l, or r.")
+    posLog.append( copy(pos) )
+
+posLog
+
+def drawMap(posLog):
+    """Function to draw an ascii map."""
+    
+    map = []
+
+    absMax = 0
+    for pos in posLog:
+        if abs(pos[0]) > absMax:
+            absMax = abs(pos[0])
+        if abs(pos[1]) > absMax:
+            absMax = abs(pos[1])
+    size = (absMax * 2) + 1
+
+    for _ in range(size):
+        map.append([])
+
+    for row in map:
+        for i in range(size):
+            row.append("-")
+
+    for pos in posLog:
+        map[-1*(pos[1]+absMax+1)][pos[0]+absMax] = "*"
+
+    for row in map:
+        rStr = ""
+        for c in row:
+            rStr += str(c)
+        print(rStr)
+
+drawMap(posLog)
+
+posLog[-1]
+
+import math
+
+#calulate distance from the starting point(0,0)
+
+dis = math.sqrt(math.pow(pos[0],2) + math.pow(pos[1],2))
+print(dis)
+
+#1. How do the final distances that individuals have moved from where they originally started compare to the number of days they've been moving?
+
+#the distances of 7 times running
+#1st time: 3.1622776601683795
+#2nd time: 5.0990195135927845
+#3rd time: 1.4142135623730951
+#4th time: 2.0
+#5th time: 2.8284271247461903
+#6th time: 4.0
+#7th time: 3.1622776601683795
+
+  ## Because every day the movement is random, as the number of days increases, the distance may increase or decrease, but the probability of increase is greater than decrease. We can't know the the actual distance of movement.
+
+#2. What if you collected actual data from your species of interest and their final positions after 10 days were represented by the following coordinates. Can the random model of movement explain these data well?
+`  
+  ## I personally think it can explain because all of these coordinates are in the range of max distance of 10-day movement.
