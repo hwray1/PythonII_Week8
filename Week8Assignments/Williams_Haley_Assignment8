@@ -7,9 +7,13 @@ posLog=[]
 posLog.append(copy(pos))
 posLog
 [[0, 0]]
-for move in range(10):
+
+# Opens a for loop that iterates through the range  of 10 which is stored in the variables days, using new variable move as a place marker in the range.  
+for move in range(days):
+    #For each iteration, move is assigned a random value from the options avaiable in the variable dirs.
     move = random.choice(dirs)
-    if move == "u":
+  # Tests the value of move and incriments the value of either position 0 or position 1 , +1 or -1 saving the new number to the indexed position in pos.
+  if move == "u":
         pos[1] +=1
     elif move == "d":
         pos[1] -=1
@@ -17,8 +21,10 @@ for move in range(10):
         pos[0] -=1
     elif move == "r":
         pos[0] +=1
+    # accounts for mistakes in dirs assignment.    
     else:
         print("Something's wrong! Direction is not u,d,l, or r.")
+    # Copies the value of pos and appends posLog with the value of pos.    
     posLog.append(copy(pos))
 posLog
 [[0, 0],
@@ -73,9 +79,9 @@ print ("%.6f"%distance(0,0,1,2))
   ## Given a single simulation, if an indevidual moves 3.162278 cells over 10 days, then the average movement per day would be .3162278 cells. However, this is an average of movement and does not reflect the actual movement per day, which would be 1 cell as defined by our model.
 #Run your simulations a bunch of times and record the distances. To rerun the simulation, first select the "Cell" dropdown menu from the top, then select "All Output", then select "Clear".
   ## 3.162278
-  ## 2.236068
+  ## 1.414214
   ## 1.414214
   ## 3.162278
-  ## 1.414214
+  ## 2.236068
 #What if you collected actual data from your species of interest and their final positions after 10 days were represented by the following coordinates. Can the random model of movement explain these data well?
   ## No, this data does not fit our current model. According to our model, an indevidual can move any direction but only one cell per day. Some of these data entries (i.e. [-2,4] to [1,9]) shows movement of more than one cell in a day.
