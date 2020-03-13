@@ -1,0 +1,81 @@
+import random
+from copy import copy
+dirs=["u","d","l","r"]
+days=10
+pos=[0,0]
+posLog=[]
+posLog.append(copy(pos))
+posLog
+[[0, 0]]
+for move in range(10):
+    move = random.choice(dirs)
+    if move == "u":
+        pos[1] +=1
+    elif move == "d":
+        pos[1] -=1
+    elif move == "l":
+        pos[0] -=1
+    elif move == "r":
+        pos[0] +=1
+    else:
+        print("Something's wrong! Direction is not u,d,l, or r.")
+    posLog.append(copy(pos))
+posLog
+[[0, 0],
+ [0, -1],
+ [0, 0],
+ [1, 0],
+ [0, 0],
+ [0, -1],
+ [0, 0],
+ [0, 1],
+ [0, 0],
+ [0, -1],
+ [0, -2]]
+def drawMap(posLog):
+    """Function to draw an ascii map"""
+map=[]
+absMax = 0
+for pos in posLog:
+    if abs(pos[0]) > absMax:
+        absMax = abs(pos[0])
+    if abs(pos[1]) > absMax:
+         absMax = abs(pos[1])
+size = (absMax * 2) + 1
+for _ in range(size):
+       map.append([])
+for row in map:
+        for i in range(size):
+            row.append("-")
+for pos in posLog:
+        map[-1*(pos[1]+absMax+1)][pos[0]+absMax] = "*"
+for row in map:
+        rStr = ""
+        for c in row:
+            rStr += str(c)
+        print(rStr)
+-----
+--*--
+--**-
+--*--
+--*--
+drawMap(posLog)
+posLog[-1]
+[0, -2]
+import math
+import math
+*1.0
+def distance (x1,y1,x2,y2):
+    return math.sqrt(math.pow(x2-x1,2)+ math.pow(y2-y1,2)*1.0)
+print ("%.6f"%distance(0,0,1,2))
+2.236068
+#How do the final distances that individuals have moved from where they originally started compare to the number of days they've been moving?
+  ## Given a single simulation, if an indevidual moves 3.162278 cells over 10 days, then the average movement per day would be .3162278 cells. However, this is an average of movement and does not reflect the actual movement per day, which would be 1 cell as defined by our model.
+#Run your simulations a bunch of times and record the distances. To rerun the simulation, first select the "Cell" dropdown menu from the top, then select "All Output", then select "Clear".
+  ## 3.162278
+  ## 2.236068
+  ## 1.414214
+  ## 3.162278
+  ## 1.414214
+#What if you collected actual data from your species of interest and their final positions after 10 days were represented by the following coordinates. Can the random model of movement explain these data well?
+  ## No, this data does not fit our current model. According to our model, an indevidual can move any direction but only one cell per day. Some of these data entries (i.e. [-2,4] to [1,9]) shows movement of more than one cell in a day.
