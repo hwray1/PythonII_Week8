@@ -1,0 +1,24 @@
+#Complete the code to show random movement
+
+for num in range(10):  # Loop over the specified number of days
+    move = random.choice(dirs) # Randomly draws a direction - u, d, l, or r
+    if move == "u": # Test what direction was drawn and update position accordingly
+        pos[1] = (pos[1] + 1)
+    elif move == "d":
+        pos[1] = (pos[1] - 1)
+    elif move == "l":
+        pos[0] = (pos[0] - 1)
+    elif move == "r":
+        pos[0] = (pos[0] + 1)
+    else:
+        print("Something's wrong! Direction is not u, d, l, or r.")
+    posLog.append( copy(pos) )
+
+
+
+
+# Write code here to calculate distance from the starting point - [0,0].
+
+totDist = ((pos[0]**2) + (pos[1]**2))**0.5
+
+print(totDist)
