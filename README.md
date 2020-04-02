@@ -254,8 +254,9 @@ the reverse complement to the screen.
 ```
 See the Jupyter notebook called "Dispersal_assignment". Fill in the
 missing code and answer the questions at the end. Complete this by
-Friday, March 13th. Add your completed Jupyter notebook to the assignments
-folder in your fork, and submit a pull request.
+Monday, March 30th (updated after campus shutdown). Add your completed 
+Jupyter notebook to the assignments folder in your fork, and submit a 
+pull request.
 ```
 
 ## References
