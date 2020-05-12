@@ -1,0 +1,19 @@
+userStr = input(str("What is your DNA sequence?")) #allows for sequence to be put in as a string as input
+complement= str("") #creates an empty string to place the complementary bases
+print ("Your sequence is:", userStr) #allows user to double check input sequence
+for x in userStr: #creates for loop to check for each input nucleotide
+    if x == "A":
+        complement += "T" #if each element in the string equals one of the letters provided, then it appends the complement to the string created above
+    elif x == "T":
+        complement += "A"
+    elif x == "C":
+        complement += "G"
+    elif x == "G":
+        complement += "C"
+    else:
+        print ("There was an invalid nucleotide in your sequence. Try again.")
+        break #this stops the loop in the case an invalid nucleotide is input
+#print (complement) #this can be reactivated to check for accuracy of the complement
+print ("This is your reverse complement:") 
+for i in complement [ : :-1]: #this reverses the sequence found in the complement string created above
+    print(i, end = "") #this prints out each of the letters in the reverse order than in the complement string
